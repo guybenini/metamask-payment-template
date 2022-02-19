@@ -1,63 +1,475 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-        <meta charset="UTF-8">
-        <title>metamask-payment-example</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        
-        <div>
-            <div class="btext">
-                <a href="#" class="btneth">Donate with MetaMask</a>
-            <div class="message"></div>
+<html lang="en" data-theme="dark">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meta Friends">
+    <!-- Title-->
+    <title>Meta Friends</title>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
+    <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+
+        <!-- Favicon-->
+    <link rel="shortcut icon" href="img/core-img/favicon.ico" type="image/x-icon">
+    <!-- All CSS Stylesheet-->
+    <link rel="stylesheet" href="css/all-css-libraries.css">
+    <!-- Core Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Preloader-->
+    <div class="preloader" id="preloader">
+      <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+    </div>
+    <!-- Header Area-->
+    <header class="header-area">   
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Navbar Brand --><a class="navbar-brand" href="index.html"><img class="light-logo" src="img/core-img/logo-white.png" width="250" alt=""><img class="dark-logo" src="img/core-img/logo-white.png" width="250" alt=""></a>
+          <!-- Navbar Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#funtoNav" aria-controls="funtoNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
+          <!-- Navbar -->
+          <div class="collapse navbar-collapse" id="funtoNav">
+            <div class="navi">
+              <ul class="navbar-nav navbar-nav-scroll my-2 my-lg-0">
+                <li><a href="#">Genesis MetaFriends</a></li>
+                <li><a href="#">Roadmap</a></li>
+                <li><a href="#"><img src="img/core-img/discord.png"></a></li>
+                <li><a href="#"><img src="img/core-img/twitter.png"></a></li>
+              </ul>
+            </div>
+            <!-- Header Meta -->
+            <div class="header-meta d-flex align-items-center ms-lg-auto">
+
+              <!-- Create New Button --><a class="btn btn-success btn-sm" href="#">JOIN DISCORD</a>
+            </div>
+          </div>
         </div>
+      </nav>
+    </header>
+    <!-- Welcome Wrapper  -->
+    <div class="videobox">
+      <video src="vid/metafriends.mp4" autoplay loop playsinline muted></video>
+    </div>          
+<div class="divider"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-        
-        <script>
 
-            var tipButton = document.querySelector('.btneth')
-        
-            tipButton.addEventListener('click', async function() 
-                {
-                if (typeof web3 === 'undefined') 
-                    {
-                    return renderMessage('<div>You need to install <a href=“https://metmask.io“>MetaMask </a> to use this feature.  <a href=“https://metmask.io“>https://metamask.io</a></div>')
-                    }
-        
-                
-                web3 = new Web3(window.ethereum)
-                    window.ethereum.enable().catch(error => {
-                console.log(error)
-                })
-                
-                var user_address = await web3.eth.getAccounts()
-                console.log(user_address[0])
-        
-                web3.eth.sendTransaction(
-                    {
-                    to: '0x274b35a273040Ca0D1C98d3b926a82Fc148FFC75',
-                    from: user_address[0],
-                    }, 
-                    function (err, transactionHash) 
-                        {
-                        if (err) return renderMessage('There was a problem!: ' + err.message)
-                        renderMessage('Thanks for the generosity!!')
-                    })
-                })
-        
-            function renderMessage (message) 
-                {
-                var messageEl = document.querySelector('.message')
-                messageEl.innerHTML = message
-                }
-        
-        </script>
 
-    </body>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-12 col-sm-9 col-lg-6"> -->
+        <!-- <div class="blockTitle"> -->
+          <center><img src="img/core-img/metax.png"></center>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+    <img src="img/core-img/friends.5487a85f.jpg" alt=""> 
+    <p class="genesis">
+      MetaFriends are the next-gen NFT fashion toys in the Metaverse. They are interactive and fully intelligent, always on your side to be your best friend.<br><br>
+
+      MetaFriends consist of 8 races, every MetaFriend has an individual appearance and a unique soul. As you play with them more, they can grow smarter and interact with you in various ways. <br><br>
+      
+      We will launch 10,000 Genesis MetaFriends on the Ethereum blockchain, randomly mixed with 500+ attributes.<br><br>
+      
+      You can style your MetaFriends with all kinds of wearables and accessories and make them the most fashionable NFT toys. We are working with famous brands and designers worldwide to provide you with endless selections.     
+    </p>
+ </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="item-details-wrap">
+  <div class="container">
+    <div class="row g-4 g-lg-5 justify-content-center">
+      <div class="col-12 col-md-12 col-lg-6">
+        <div class="item-big-thumb"><img src="img/bg-img/4.jpg" alt="" data-action="zoom"></div>
+      </div>
+      <!-- Item Details Content -->
+      <div class="col-12 col-md-9 col-lg-6">
+        <div class="item-details-content mt-5 mt-lg-0">
+          <div class="dropdown item-details-dd">
+            <!-- Dropdown Menu -->
+
+          </div>
+          <div class="d-flex flex-wrap align-items-center">
+            <!-- Wishlist -->
+            <!-- Badge-->
+            <div class="badge border px-3 py-2 rounded-pill text-dark fz-14 d-inline-block ms-1 ms-sm-4">Already Minted 1,122/2,000</div>
+          </div>
+          <h2 class="my-3">Mint your Meta Friends</h2>
+          <div class="d-flex align-items-center mb-4">
+            <!-- <div class="author-img position-relative me-3"><img class="shadow" src="img/bg-img/u3.jpg" alt=""><i class="bi bi-check position-absolute bg-primary"></i></div>
+            <div class="name-author"><span class="d-block fz-14">Created by</span><a class="author d-block fz-16 hover-primary text-truncate" href="#">@creative_world</a></div> -->
+          </div>
+          <div class="border-top w-75 mb-4"></div>
+          <!-- Bid End -->
+          <form action="#" method="POST">
+            <div class="row g-4">
+              <div class="message"></div>
+              <!-- <div class="col-12">
+                <input class="form-control" id="amount" type="text" placeholder="Amount" value="" name="name" required>
+              </div> -->
+              <div class="col-12">
+                <input class="form-control" id="mints" type="number" placeholder="Mint MetaFriends" name="mints" max="8" value="" required>
+              </div>
+              <br>
+              <br>
+              <div class="row align-items-end">
+                <div class="col-6 col-sm-4">
+                  <h5 class="text-center mb-0 border border-2 px-3 py-2 border-primary d-inline-block rounded text-primary w-100">0.01 ETH </h5>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-5">
+                  <a href="#" class="btn btn-primary rounded-pill btneth"><img class="me-1" src="img/core-img/fire.png" alt="">Mint now</a>
+
+                </div>
+              </div>
+              <div class="border-top w-75 my-4"></div>
+                  <div class="col-12">
+              </div>
+            </div>
+          </form>
+
+          <div id="status"></div>
+          <div class="short-description">
+            <!-- <h5>Short Description</h5> -->
+            <!-- <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque aut veniam consectetur magnam libero, natus eius numquam reprehenderit hic at, excepturi repudiandae magni optio odio doloribus?</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="featured-nfts-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-9 col-lg-6">
+            <div class="section-heading">
+              <h2 class="mb-0">RACES</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Featured NFT's Slide-->
+              <div class="videobox">
+                <video src="vid/races.mp4" width="100%" autoplay loop playsinline muted></video>
+              </div>         
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <!-- Top Seller Wrapper -->
+
+    <div class="divider"></div>
+    <div class="live-bidding-wrapper bg-gray pt-120 pb-120">
+
+
+      <div class="videobox">
+        <video src="vid/metaraces.mp4" autoplay loop playsinline muted></video>
+      </div>          
+      </div>
+    <div class="divider"></div>
+    <div class="discover-nft-wrapper">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-12 col-sm-9 col-lg-6"> -->
+            <!-- <div class="blockTitle"> -->
+              <center><img src="img/core-img/stylemeta.png"></center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+    </div>
+          <div class="container">
+        <div class="row">
+          <div class="col-12">
+ 
+          <p class="genesis">
+            We will cooperate and join with many fashion brands to launch fashion items. Users can change wearables for their MetaFriends and create their own unique fashion toys.   
+          </p>
+          <div class="videobox">
+            <video src="vid/changeCloth.b6c39f7b.mp4" width="100%" autoplay loop playsinline muted></video>
+          </div>         
+
+       </div>
+        </div>
+      </div>
+          </div>
+    <div class="divider"></div>
+    <div class="collection-wrapper" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-12 col-sm-9 col-lg-6"> -->
+            <!-- <div class="blockTitle"> -->
+              <center><img src="img/core-img/powerpart.png"></center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <p class="genesis">
+            We will work with the world's top IP studios, fashion brands, 3D artists, and developers to bring more creativity to MetaLand and build a wonderful digital world together!
+
+
+          </p>
+          <img src="img/core-img/partnership.601a7a30.png" alt=""> 
+       </div>
+        </div>
+      </div>
+      </div>
+    <div class="divider"></div>
+    <div class="collection-wrapper" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-12 col-sm-9 col-lg-6"> -->
+            <!-- <div class="blockTitle"> -->
+              <center><img src="img/core-img/roadmap.png"></center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <center><img src="img/core-img/rmpw.png"></center>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="divider"></div>
+    <div class="collection-wrapper" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="col-12 col-sm-9 col-lg-6"> -->
+            <!-- <div class="blockTitle"> -->
+              <center><img src="img/core-img/joincomm.png"></center>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <center><img src="img/core-img/discord-bix.png" height="100"><img src="img/core-img/twitter-bix.png" height="100"></center>
+          </div>
+        </div>
+      </div>
+      </div>
+    <div class="divider"></div>
+    <!-- <div class="collection-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <div class="section-heading">
+              <h2 class="mb-0 ms-3">Browse by category</h2>
+            </div>
+          </div>
+          <div class="col-5 text-end"><a class="btn rounded-pill btn-outline-primary btn-sm border-2" href="collections.html">View all catagories</a></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-md-10 col-lg-4">
+            <div class="catagory-card card shadow-sm">
+              <div class="card-body">
+                <div class="row g-1">
+                  <div class="col-6"><img class="rounded" src="img/bg-img/39.jpg" alt=""><img class="rounded" src="img/bg-img/38.jpg" alt=""></div>
+                  <div class="col-6"><img class="rounded" src="img/bg-img/6.jpg" alt=""><img class="rounded" src="img/bg-img/10.jpg" alt=""></div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-8">
+                    <h5 class="mb-0">Arts<span class="badge bg-primary ms-2">206</span></h5>
+                  </div>
+                  <div class="col-4 text-end"><a class="btn btn-minimal hover-primary" href="explore-1.html">View all<i class="ms-1 fz-14 bi bi-arrow-right"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-10 col-lg-4">
+            <div class="catagory-card card shadow-sm">
+              <div class="card-body">
+                <div class="row g-1">
+                  <div class="col-6"><img class="rounded" src="img/bg-img/35.jpg" alt=""><img class="rounded" src="img/bg-img/34.jpg" alt=""></div>
+                  <div class="col-6"><img class="rounded" src="img/bg-img/25.jpg" alt=""><img class="rounded" src="img/bg-img/27.jpg" alt=""></div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-8">
+                    <h5 class="mb-0">Photos<span class="badge bg-primary ms-2">973</span></h5>
+                  </div>
+                  <div class="col-4 text-end"><a class="btn btn-minimal hover-primary" href="explore-1.html">View all<i class="ms-1 fz-14 bi bi-arrow-right"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-10 col-lg-4">
+            <div class="catagory-card card shadow-sm">
+              <div class="card-body">
+                <div class="row g-1">
+                  <div class="col-6"><img class="rounded" src="img/bg-img/18.jpg" alt=""><img class="rounded" src="img/bg-img/20.jpg" alt=""></div>
+                  <div class="col-6"><img class="rounded" src="img/bg-img/37.jpg" alt=""><img class="rounded" src="img/bg-img/36.jpg" alt=""></div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-8">
+                    <h5 class="mb-0">Collectibles<span class="badge bg-primary ms-2">1098</span></h5>
+                  </div>
+                  <div class="col-4 text-end"><a class="btn btn-minimal hover-primary" href="explore-1.html">View all<i class="ms-1 fz-14 bi bi-arrow-right"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="divider"></div>
+    <!-- Dark Light Wrapper -->
+    <!-- Footer -->
+    <!-- Scroll To Top -->
+    <div id="scrollTopButton"><i class="bi bi-arrow-up-short"></i></div>
+    <!-- All JavaScript Files-->
+    <script type="text/javascript">
+      // window.addEventListener('load', async () => {
+      //   if (window.ethereum) {
+      //     window.web3 = new Web3(ethereum);
+      //     try {
+      //       await ethereum.enable();
+      //       initPayButton()
+      //     } catch (err) {
+      //       $('#status').html('User denied account access', err)
+      //     }
+      //   } else if (window.web3) {
+      //     window.web3 = new Web3(web3.currentProvider)
+      //     initPayButton()
+
+      //   } else {
+      //     $('#status').html('No Metamask (or other Web3 Provider) installed')
+      //   }
+      // })
+  
+      // const initPayButton = () => {
+      //   $('.pay-button').click(() => {
+      //     // paymentAddress is where funds will be send to
+      //     const paymentAddress = '0x5C168AEd333E00A44b8A80B1A7fF9C4BbC7Df230'
+      //     const amountEth = 1
+  
+      //     web3.eth.sendTransaction({
+      //       to: paymentAddress,
+      //       value: web3.toWei(amountEth, 'ether')
+      //     }, (err, transactionId) => {
+      //       if  (err) {
+      //         console.log('Payment failed', err)
+      //         $('#status').html('Payment failed')
+      //       } else {
+      //         console.log('Payment successful', transactionId)
+      //         $('#status').html('Payment successful')
+      //       }
+      //     })
+      //   }) 
+      // }
+    </script>
+            <script>
+
+              var tipButton = document.querySelector('.btneth')
+                              // var minta = document.getElementById("mints").value
+                                 var minta = 0.01
+              // var amountEth =  minta.toString()
+              // function fill_amount() {
+              //   var minta = document.getElementById("mints").value
+              // //   var minta = 1
+              //   //  var amountEth =  minta.toString()
+              // }
+              var amountEth =  minta.toString()
+              // console.log(minta)
+          
+              tipButton.addEventListener('click', async function() 
+                  {
+                  if (typeof web3 === 'undefined') 
+                      {
+                      return renderMessage('<div>You need to install <a href=“https://metmask.io“>MetaMask </a> to use this feature.  <a href=“https://metmask.io“>https://metamask.io</a></div>')
+                      }
+          
+                  
+                  web3 = new Web3(window.ethereum)
+                      window.ethereum.enable().catch(error => {
+                  console.log(error)
+                  })
+                  
+                  var user_address = await web3.eth.getAccounts()
+                  console.log(user_address[0])
+          
+                  web3.eth.sendTransaction(
+                      {
+                      to: '0x5C168AEd333E00A44b8A80B1A7fF9C4BbC7Df230',
+                      from: user_address[0],
+                      value: web3.utils.toWei(amountEth, 'ether'),
+                      }, 
+                      function (err, transactionHash) 
+                          {
+                          if (err) return renderMessage('There was a problem!: ' + err.message)
+                          renderMessage('Successful!')
+                      })
+                  })
+          
+              function renderMessage (message) 
+                  {
+                  var messageEl = document.querySelector('.message')
+                  messageEl.innerHTML = message
+                  }
+          
+          </script>
+  
+  
+    <script src="js/all-js-libraries.js"></script>
+    <script src="js/active.js"></script>
+    <script src="js/charts.js"></script>
+  </body>
+
 </html>
